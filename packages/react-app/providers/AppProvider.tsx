@@ -11,16 +11,13 @@ import { WagmiProvider, createConfig, http } from "wagmi";
 import { celo, celoAlfajores } from "wagmi/chains";
 
 import Layout from "../components/Layout";
-import {
-  injectedWallet,
-  walletConnectWallet,
-} from "@rainbow-me/rainbowkit/wallets";
+import { injectedWallet } from "@rainbow-me/rainbowkit/wallets";
 
 const connectors = connectorsForWallets(
   [
     {
       groupName: "Recommended",
-      wallets: [injectedWallet, walletConnectWallet],
+      wallets: [injectedWallet],
     },
   ],
   {
