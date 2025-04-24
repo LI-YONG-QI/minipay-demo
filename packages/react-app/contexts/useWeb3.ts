@@ -63,6 +63,10 @@ export const useWeb3 = () => {
   };
 
   const mintMinipayNFT = async () => {
+    if (!window.ethereum) {
+      throw new Error("No ethereum provider found. Please install a wallet.");
+    }
+
     let walletClient = createWalletClient({
       transport: custom(window.ethereum),
       chain: celoAlfajores,
