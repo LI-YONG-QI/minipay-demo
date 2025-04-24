@@ -77,7 +77,6 @@ export default function Home() {
       setUserOwnedNFTs(tokenURIs);
       setTx(tx);
     } catch (error) {
-      alert(error);
       if (error instanceof BaseError) {
         setErrorMsg(`${error.name}\n ${error.details}\n ${error.metaMessages}`);
       } else {
@@ -166,9 +165,11 @@ export default function Home() {
               title="Mint Minipay NFT"
               widthFull
             />
-            <p className="text-red-600 w-full overflow-hidden text-ellipsis break-words text-sm">
-              {errorMsg}
-            </p>
+            <div>
+              <p className="text-red-600 break-words max-w-[400px]">
+                {errorMsg}
+              </p>
+            </div>
           </div>
 
           {userOwnedNFTs.length > 0 ? (
